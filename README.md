@@ -19,3 +19,10 @@ Debian-based:
 ```sh
 sudo apt-get install ripgrep
 ```
+
+### Unzip
+
+Debian-based:
+```sh
+sudo apt install unzip
+```

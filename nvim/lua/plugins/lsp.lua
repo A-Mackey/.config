@@ -11,7 +11,19 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = { "tsserver", "lua_ls" },
+        ensure_installed = {
+          -- Typescript
+          "tsserver",
+          "pyright",
+          "eslint",
+          "tailwindcss",
+
+          -- c/c++
+          "clangd",
+
+          -- Lua
+          "lua_ls"
+        },
       })
 
       -- Configure capabilities

@@ -10,6 +10,8 @@ vim.opt.expandtab = true    -- Use spaces instead of tabs
 vim.opt.tabstop = 2         -- Number of spaces tabs count for
 vim.opt.shiftwidth = 2      -- Size of an indent
 
+vim.o.splitright = true     -- Split right
+
 vim.filetype.add({
   extensions = {
     ts = "typescript",

@@ -18,6 +18,13 @@ map('n', '<C-l>', '<C-w>l', { desc = "Move to right window" })
 map('n', '<C-j>', '<C-w>j', { desc = "Move to bottom window" })
 map('n', '<C-k>', '<C-w>k', { desc = "Move to top window" })
 
+map('n', '<leader>tv', ':vsplit | terminal<CR>i', { desc = "Vertical terminal right" })
+map('n', '<leader>th', ':split | terminal<CR>i', { desc = "Horizontal terminal below" })
+
+-- Map jk in terminal mode to exit to normal mode
+map('t', 'jk', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+map('t', '<Esc>', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
 
 -- Visual mode mappings
 map('v', '<leader>c', '"+y', { desc = 'Copy to system clipboard' })
