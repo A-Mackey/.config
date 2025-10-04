@@ -1,16 +1,24 @@
 -- lua/keymaps.lua
 local map = vim.keymap.set
+local api = require('nvim-tree.api')
 
 -- Normal mode mappings
 map('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
 map('n', '<leader>q', ':q<CR>', { desc = 'Quit' })
 map('n', '<leader>x', ':wqa<CR>', { desc = 'Save & Quit' })
-map('n', '<leader>e', ':Ex<CR>', { desc = 'Save & Quit' })
 map('n', '<leader>l', ':Lazy<CR>', { desc = 'Save & Quit' })
 map('n', '<C-u>', '<C-u>zz', { desc = "Half page up and center" })
 map('n', '<C-d>', '<C-d>zz', { desc = "Half page down and center" })
 map('n', 'n', 'nzzzv', { desc = "Next search result and center" })
 map('n', 'N', 'Nzzzv', { desc = "Previous search result and center" })
+
+-- Buffer Navigations
+map('n', '<C-h>', '<C-w>h', { desc = "Move to left window" })
+map('n', '<C-l>', '<C-w>l', { desc = "Move to right window" })
+map('n', '<C-j>', '<C-w>j', { desc = "Move to bottom window" })
+map('n', '<C-k>', '<C-w>k', { desc = "Move to top window" })
+
+
 -- Visual mode mappings
 map('v', '<leader>c', '"+y', { desc = 'Copy to system clipboard' })
 
@@ -51,13 +59,19 @@ map('n', '<leader>b', function()
         }
     })
 end, { desc = "Find buffers" })
-map('n', '<leader>>', ':NvimTreeResize +10<CR>', { desc = "Increase tree width" })
-map('n', '<leader><', ':NvimTreeResize -10<CR>', { desc = "Decrease tree width" })
 map('n', '<leader>d', vim.diagnostic.open_float, { desc = "Show diagnostics" })
+
+
 
 -- Tree
 map('n', '<leader>e', ':NvimTreeToggle<CR>')
-map('n', '<C-h>', '<C-w>h', { desc = "Move to left window" })
-map('n', '<C-l>', '<C-w>l', { desc = "Move to right window" })
+map('n', '+', ':NvimTreeResize +10<CR>', { desc = "Increase tree width" })
+map('n', '_', ':NvimTreeResize -10<CR>', { desc = "Decrease tree width" })
 map('n', '<leader>o', ':NvimTreeFindFile!<CR>', { desc = "Locate current file in tree" })
+map('n', '<leader>v', function()
+  api.node.open.vertical()
+end, { desc = "Open NvimTree file in vertical split" })
+map('n', '<leader>s', function()
+  api.node.open.horizontal()
+end, { desc = "Open NvimTree file in horizontal split" })
 

@@ -10,3 +10,12 @@ mv nvim/ ..
 cd ..
 rm -rf .config
 ```
+
+## Dependencies
+
+### ripgrep
+
+Debian-based:
+```sh
+sudo apt-get install ripgrep
+```

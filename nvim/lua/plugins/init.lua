@@ -14,23 +14,55 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Initialize lazy.nvim with some plugins
 require("lazy").setup({
+  require("plugins.lsp"),
   -- Colorscheme
   { "EdenEast/nightfox.nvim", lazy = false },
+
   -- Syntax Highlighting
   { "nvim-treesitter/nvim-treesitter" },
+
   -- Java Language Server
   { "mfussenegger/nvim-jdtls" },
 
-  -- FuzzyFinder
+
+  -- Telescope (FuzzyFinder)
   { "nvim-telescope/telescope.nvim",
     dependencies = {
       'nvim-lua/plenary.nvim'
     }
   },
-  -- File Explorere
+
+  -- Diagnostics
+  { 'folke/trouble.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons'
+    }
+  },
+
+  -- File Explorer
   { "nvim-tree/nvim-tree.lua",
     version = "*",
     lazy = false,
+    dependencies = {
+      'nvim-tree/nvim-web-devicons'
+    }
+  },
+
+  -- Autocomplete {}[]()"" etc
+  { 'windwp/nvim-autopairs', config = true },
+
+  -- Git blame
+  { 'lewis6991/gitsigns.nvim' },
+
+  -- Indentation
+  { 'lukas-reineke/indent-blankline.nvim', main = "ibl" },
+
+  -- Shows keymappings
+  { 'folke/which-key.nvim', config = true },
+
+  -- Lualine (Line at bottom of screen)
+  {
+    'nvim-lualine/lualine.nvim',
     dependencies = {
       'nvim-tree/nvim-web-devicons'
     }
