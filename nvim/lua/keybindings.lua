@@ -17,6 +17,14 @@ map('n', '<C-h>', '<C-w>h', { desc = "Move to left window" })
 map('n', '<C-l>', '<C-w>l', { desc = "Move to right window" })
 map('n', '<C-j>', '<C-w>j', { desc = "Move to bottom window" })
 map('n', '<C-k>', '<C-w>k', { desc = "Move to top window" })
+-- Buffer Resize
+map('n', '<C-Right>', ':vertical resize +5<CR>', { desc = "Increase window width" })
+map('n', '<C-Left>', ':vertical resize -5<CR>', { desc = "Decreate window width" })
+map('n', '+', ':vertical resize +5<CR>', { desc = "Increase window width" })
+map('n', '_',  ':vertical resize -5<CR>', { desc = "Decrease window width" })
+map('n', '<C-Up>',    ':resize +3<CR>', { desc = "Increase window height" })
+map('n', '<C-Down>',  ':resize -3<CR>', { desc = "Decrease window height" })
+
 
 map('n', '<leader>tv', ':vsplit | terminal<CR>i', { desc = "Vertical terminal right" })
 map('n', '<leader>th', ':split | terminal<CR>i', { desc = "Horizontal terminal below" })
@@ -24,7 +32,6 @@ map('n', '<leader>th', ':split | terminal<CR>i', { desc = "Horizontal terminal b
 -- Map jk in terminal mode to exit to normal mode
 map('t', 'jk', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 map('t', '<Esc>', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
-
 
 -- Visual mode mappings
 map('v', '<leader>c', '"+y', { desc = 'Copy to system clipboard' })
@@ -72,8 +79,6 @@ map('n', '<leader>d', vim.diagnostic.open_float, { desc = "Show diagnostics" })
 
 -- Tree
 map('n', '<leader>e', ':NvimTreeToggle<CR>')
-map('n', '+', ':NvimTreeResize +10<CR>', { desc = "Increase tree width" })
-map('n', '_', ':NvimTreeResize -10<CR>', { desc = "Decrease tree width" })
 map('n', '<leader>o', ':NvimTreeFindFile!<CR>', { desc = "Locate current file in tree" })
 map('n', '<leader>v', function()
   api.node.open.vertical()
