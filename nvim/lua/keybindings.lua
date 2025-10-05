@@ -73,6 +73,18 @@ map('n', '<leader>b', function()
         }
     })
 end, { desc = "Find buffers" })
+map('n', ';', function()
+    require('telescope.builtin').buffers({
+        sort_lastused = true,
+        ignore_current_buffer = true,
+        path_display = { "tail" },
+        sort_mru = true,
+        layout_config = {
+            width = 0.7,
+            height = 0.5,
+        }
+    })
+end, { desc = "Find buffers" })
 map('n', '<leader>d', vim.diagnostic.open_float, { desc = "Show diagnostics" })
 
 

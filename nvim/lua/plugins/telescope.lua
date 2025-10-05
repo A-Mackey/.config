@@ -7,10 +7,17 @@ require('telescope').setup{
       i = {
         ["<C-j>"] = "move_selection_next",
         ["<C-k>"] = "move_selection_previous",
+        ["<leader>"] = actions.select_default,
       },
       n = {
-        ["q"] = actions.close
+        ["q"] = actions.close,
+        ["<leader>"] = actions.select_default,
       }
+    }
+  },
+  pickers = {
+    buffers = {
+      initial_mode = "normal"
     }
   }
 }

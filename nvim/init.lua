@@ -2,7 +2,7 @@ require('options')
 require('plugins')
 require('keybindings')
 
-vim.cmd.colorscheme("nightfox")
+vim.cmd.colorscheme("retrobox")
 
 -- plugins
 require("plugins.treesitter")

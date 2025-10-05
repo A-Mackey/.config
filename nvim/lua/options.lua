@@ -39,3 +39,12 @@ vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWa
 vim.fn.sign_define("DiagnosticSignInfo", { text = "󰋽", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
+-- -- Normal mode: Ctrl+V → block visual
+vim.keymap.set('n', '<C-v>', '<C-v>', { noremap = true, desc = "Visual block mode" })
+
+-- Insert mode: Ctrl+V → insert literal (default)
+vim.keymap.set('i', '<C-v>', '<C-v>', { noremap = true, desc = "Insert literal character" })
+
+-- Terminal mode: Ctrl+V → pass through (optional, usually not needed)
+vim.keymap.set('t', '<C-v>', '<C-v>', { noremap = true, desc = "Terminal literal" })
+
